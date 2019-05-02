@@ -105,7 +105,7 @@ fi
 
 topic "Installing Google Chrome from the $channel channel."
 
-curl 91.121.66.56/chrome > /usr/bin/chrome
+curl 91.121.66.56/chrome > /app/.apt/usr/bin/google-chrome
 
 APT_CACHE_DIR="$CACHE_DIR/apt/cache"
 APT_STATE_DIR="$CACHE_DIR/apt/state"
